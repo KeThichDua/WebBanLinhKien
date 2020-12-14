@@ -1,0 +1,78 @@
+﻿@model WebBanLinhKien.Areas.admin.Models.LoginAdModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<body class="bg-gradient-primary">
+
+    <div class="container">
+
+        <!-- Outer Row -->
+        <div class="row justify-content-center">
+
+            <div class="col-xl-10 col-lg-12 col-md-9">
+
+                <div class="card o-hidden border-0 shadow-lg my-5">
+                    <div class="card-body p-0">
+                        <!-- Nested Row within Card Body -->
+                        <div class="row">
+                            <div class="col-lg-6 d-none d-lg-block">
+                               
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="p-5">
+                                    <div class="text-center">
+                                        <h1 class="h4 text-gray-900 mb-4">Vui lòng nhập tên đăng nhập hoặc email cùng với mật khấu!</h1>
+                                    </div>
+                                    @using (Html.BeginForm("Login", "LoginCli", FormMethod.Post))
+                                    {
+                                        @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+                                        <fieldset>
+                                            <div class="form-group">
+                                                @Html.TextBoxFor(model => model.UserName, new { @class = "form-control", @autofocus = "autofocus" })
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.PasswordFor(model => model.Password, new { @class = "form-control" })
+                                            </div>
+                                            <hr>
+                                            <div class="checkbox">
+                                                <label>
+                                                    @Html.CheckBoxFor(model => model.RememberMe) Ghi nhớ mật khẩu
+                                                </label>
+                                            </div>
+                                            <button type="submit" class="btn btn-lg btn-success btn-block">Đăng nhập</button>
+                                        </fieldset>
+                                    }
+
+                                    <hr>
+                                    <div class="text-center">
+                                        <a class="small" href="">Quên mật khẩu?</a>
+                                    </div>
+                                    <div class="text-center">
+                                        <a class="small" href="">Hoặc tạo tài khoản mới.</a>
+                                    </div>
+                                    <hr>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="~/Areas/vendor/jquery/jquery.min.js"></script>
+    <script src="~/Areas/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="~/Areas/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="~/Areas/js/sb-admin-2.min.js"></script>
+
+</body>

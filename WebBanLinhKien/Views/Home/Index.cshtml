@@ -1,0 +1,330 @@
+﻿@model  WebBanLinhKien.Models.SP_loaiSP_nhaCC
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<section id="slider">
+    <!--slider-->
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div id="slider-carousel" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#slider-carousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#slider-carousel" data-slide-to="1"></li>
+                        <li data-target="#slider-carousel" data-slide-to="2"></li>
+                    </ol>
+
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <div class="col-sm-6">
+                                <h1><span>E</span>-SHOPPER</h1>
+                                <h2>Free E-Commerce Template</h2>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                                <button type="button" class="btn btn-default get">Đặt Hàng Ngay</button>
+                            </div>
+                            <div class="col-sm-6">
+                                <img src="~/Data/images/home/girl1.jpg" class="girl img-responsive" alt="" />
+                                <img src="~/Data/images/home/pricing.png" class="pricing" alt="" />
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="col-sm-6">
+                                <h1><span>E</span>-SHOPPER</h1>
+                                <h2>100% Responsive Design</h2>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                                <button type="button" class="btn btn-default get">Đặt Hàng Ngay!</button>
+                            </div>
+                            <div class="col-sm-6">
+                                <img src="~/Data/images/home/girl2.jpg" class="girl img-responsive" alt="" />
+                                <img src="~/Data/images/home/pricing.png" class="pricing" alt="" />
+                            </div>
+                        </div>
+
+                        <div class="item">
+                            <div class="col-sm-6">
+                                <h1><span>E</span>-SHOPPER</h1>
+                                <h2>Free Ecommerce Template</h2>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                                <button type="button" class="btn btn-default get">Đặt Hàng Ngay!</button>
+                            </div>
+                            <div class="col-sm-6">
+                                <img src="~/Data/images/home/girl3.jpg" class="girl img-responsive" alt="" />
+                                <img src="~/Data/images/home/pricing.png" class="pricing" alt="" />
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <a href="#slider-carousel" class="left control-carousel hidden-xs" data-slide="prev">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a href="#slider-carousel" class="right control-carousel hidden-xs" data-slide="next">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section><!--/slider-->
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="left-sidebar">
+
+                    <h2>Danh Mục Linh Kiện</h2>
+                    <div class="panel-group category-products" id="accordian">
+                        @{ var item = Model;}
+                        @foreach (var i in item.loaiSP)
+                        {
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title"><a href="#">@i.Ten_loai</a></h4>
+                                </div>
+                            </div>
+                        }
+
+                    </div>@*/category-products*@
+
+                    <div class="brands_products">
+                    <h2>Hãng Sản Xuất</h2>
+                        @foreach (var i in item.nhaCC)
+                        {
+                            <div class="brands-name">
+                                <ul class="nav nav-pills nav-stacked">
+                                    <li><a href="#"> <span class="pull-right"></span>@i.Ten_ncc</a></li>
+                                </ul>
+                            </div>
+                        }
+
+                    </div>@*/brands_products*@
+
+                    <div class="price-range">
+                        <!--price-range-->
+                        <h2>Mức Giá</h2>
+                        <div class="well text-center">
+                            <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="100000" data-slider-step="5" data-slider-value="[50,450]" id="sl2"><br />
+                            <b class="pull-left"> 0k ₫</b> <b class="pull-right"> 100000k ₫</b>
+                        </div>
+                    </div><!--/price-range-->
+
+                    <div class="shipping text-center">
+                        <!--shipping-->
+                        <img src="~/Data/images/home/shipping.jpg" alt="" />
+                    </div><!--/shipping-->
+
+                </div>
+            </div>
+
+            <div class="col-sm-9 padding-right">
+                <div class="features_items">
+                    <!--features_items-->
+                    <h2 class="title text-center">Linh kiện nổi bật</h2>
+                    @{ int dem = 0;}
+                    @foreach(var i in item.SP)
+                    {
+                        <div class="col-sm-4">
+                            <div class="product-image-wrapper">
+                                <div class="single-products">
+                                    <div class="productinfo text-center">
+                                        <img src="@i.Url_anh" alt="" />
+                                        <h2>@i.Gia_km ₫</h2>
+                                        <p>@i.Ten_sp</p>
+                                        <a href="/Cart/AddItem?id=@i.id&quantity=1" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
+                                    </div>
+                                    <div class="product-overlay">
+                                        <div class="overlay-content">
+                                            <h2>@i.Gia_km ₫</h2>
+                                            <p>@i.Ten_sp</p>
+                                            <a href="/Cart/AddItem?id=@i.id&quantity=1" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="choose">
+                                    <ul class="nav nav-pills nav-justified">
+                                        <li><a href="#"><i class="fa fa-plus-square"></i>Thêm vào yêu thích</a></li>
+                                        <li><a href="#"><i class="fa fa-plus-square"></i>Chi tiết sản phẩm</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        dem++;
+                        if (dem == 6)
+                        {
+                            dem = 0;
+                            break;
+                        }
+                    }
+
+                </div><!--features_items-->
+
+                <div class="category-tab">
+                    <!--category-tab-->
+                    <div class="col-sm-12">
+                        <ul class="nav nav-tabs">
+                            @foreach(var i in item.loaiSP)
+                            {
+                                <li class="active"><a href="#@i.id" data-toggle="tab">@i.Ten_loai</a></li>
+                                dem++;
+                                if (dem == 3)
+                                {
+                                    dem = 0;
+                                    break;
+                                }
+                            }                                          
+                        </ul>
+                    </div>
+
+                    <div class="tab-content">
+                        @foreach (var i in item.loaiSP)
+                        {
+                            <div class="tab-pane fade active in" id="@i.id">
+                                @foreach (var j in item.SP)
+                                {
+                                    if (j.Ma_loai_sp != i.MaLoaiSP)
+                                    {
+                                        continue;
+                                    }
+
+                                    <div class="col-sm-3">
+                                        <div class="product-image-wrapper">
+                                            <div class="single-products">
+                                                <div class="productinfo text-center">
+                                                    <img src="@j.Url_anh" alt="" />
+                                                    <h2>@j.Gia_km ₫</h2>
+                                                    <p>@j.Ten_sp</p>
+                                                    <a href="/Cart/AddItem?id=@j.id&quantity=1" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    dem++;
+                                    if (dem >3)
+                                    {
+                                        dem = 0;
+                                        break;
+                                    }
+                                }
+                                
+                            </div>
+                        }
+
+                    </div>
+                </div><!--/category-tab-->
+
+                <div class="recommended_items">
+                    <!--recommended_items-->
+                    <h2 class="title text-center">Linh Kiện Đề Xuất</h2>
+
+                    <div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                @foreach (var i in item.SP)
+                                {
+                                    <div class="col-sm-4">
+                                        <div class="product-image-wrapper">
+                                            <div class="single-products">
+                                                <div class="productinfo text-center">
+                                                    <img src="@i.Url_anh" alt="" />
+                                                    <h2>@i.Gia_km ₫</h2>
+                                                    <p>@i.Ten_sp</p>
+                                                    <a href="/Cart/AddItem?id=@i.id&quantity=1" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    dem++;
+                                    if (dem > 2)
+                                    {
+                                        dem = 0;
+                                        break;
+                                    }
+                                }
+                            </div>
+                            <div class="item">
+                                @foreach (var i in item.SP)
+                                {
+                                    <div class="col-sm-4">
+                                        <div class="product-image-wrapper">
+                                            <div class="single-products">
+                                                <div class="productinfo text-center">
+                                                    <img src="@i.Url_anh" alt="" />
+                                                    <h2>@i.Gia_km ₫</h2>
+                                                    <p>@i.Ten_sp</p>
+                                                    <a href="/Cart/AddItem?id=@i.id&quantity=1" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    dem++;
+                                    if (dem > 2)
+                                    {
+                                        dem = 0;
+                                        break;
+                                    }
+                                }
+                            </div>
+                        </div>
+                        <a class="left recommended-item-control" href="#recommended-item-carousel" data-slide="prev">
+                            <i class="fa fa-angle-left"></i>
+                        </a>
+                        <a class="right recommended-item-control" href="#recommended-item-carousel" data-slide="next">
+                            <i class="fa fa-angle-right"></i>
+                        </a>
+                    </div>
+                </div><!--/recommended_items-->
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+@*<
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ma_sp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ten_sp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.So_luong)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DonGia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mo_ta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gia_km)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Url_anh)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ma_loai_sp)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+                @Html.ActionLink("Details", "Details", new { id=item.id }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.id })
+            </td>
+        </tr>
+    }
+
+    </table>*@

@@ -1,0 +1,106 @@
+﻿@model  WebBanLinhKien.Models.SP_loaiSP_nhaCC
+
+@{
+    ViewBag.Title = "All";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section id="advertisement">
+    <div class="container">
+        <img src="~/Data/images/shop/advertisement.jpg" alt="" />
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="left-sidebar">
+
+                    <h2>Danh Mục Linh Kiện</h2>
+                    <div class="panel-group category-products" id="accordian">
+                        @{ var item = Model;}
+                        @foreach (var i in item.loaiSP)
+                        {
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title"><a href="#">@i.Ten_loai</a></h4>
+                                </div>
+                            </div>
+                        }
+
+                    </div>@*/category-products*@
+
+                    <div class="brands_products">
+                        <h2>Hãng Sản Xuất</h2>
+                        @foreach (var i in item.nhaCC)
+                        {
+                            <div class="brands-name">
+                                <ul class="nav nav-pills nav-stacked">
+                                    <li><a href="#"> <span class="pull-right"></span>@i.Ten_ncc</a></li>
+                                </ul>
+                            </div>
+                        }
+
+                    </div>@*/brands_products*@
+
+                    <div class="price-range">
+                        <!--price-range-->
+                        <h2>Mức Giá</h2>
+                        <div class="well text-center">
+                            <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="100000" data-slider-step="5" data-slider-value="[50,450]" id="sl2"><br />
+                            <b class="pull-left"> 0k ₫</b> <b class="pull-right"> 100000k ₫</b>
+                        </div>
+                    </div><!--/price-range-->
+
+                    <div class="shipping text-center">
+                        <!--shipping-->
+                        <img src="~/Data/images/home/shipping.jpg" alt="" />
+                    </div><!--/shipping-->
+
+                </div>
+            </div>
+
+            <div class="col-sm-9 padding-right">
+                <div class="features_items">
+                    <!--features_items-->
+                    <h2 class="title text-center">Linh kiện nổi bật</h2>
+                    @foreach (var i in item.SP)
+                    {
+                        <div class="col-sm-4">
+                            <div class="product-image-wrapper">
+                                <div class="single-products">
+                                    <div class="productinfo text-center">
+                                        <img src="@i.Url_anh" alt="" />
+                                        <h2>@i.Gia_km ₫</h2>
+                                        <p>@i.Ten_sp</p>
+                                        <a href="/Cart/AddItem?id=@i.id&quantity=1" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
+                                    </div>
+                                    <div class="product-overlay">
+                                        <div class="overlay-content">
+                                            <h2>@i.Gia_km ₫</h2>
+                                            <p>@i.Ten_sp</p>
+                                            <a href="/Cart/AddItem?id=@i.id&quantity=1" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="choose">
+                                    <ul class="nav nav-pills nav-justified">
+                                        <li><a href="#"><i class="fa fa-plus-square"></i>Thêm vào yêu thích</a></li>
+                                        <li><a href="#"><i class="fa fa-plus-square"></i>Chi tiết sản phẩm</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                </div><!--features_items-->
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+

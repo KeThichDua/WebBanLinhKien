@@ -1,0 +1,54 @@
+﻿@model IEnumerable<WebBanLinhKien.Areas.admin.Models.AdminModel>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
+}
+
+<p>
+    @Html.ActionLink("Tạo mới", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Mã admin
+        </th>
+        <th>
+            Tên admin
+        </th>
+        <th>
+            Email
+        </th>
+        <th>
+            Mật khẩu
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Ma_Admin)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.User)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Email)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Password)
+    </td>
+    <td>
+        @Html.ActionLink("Sửa", "Edit", new { id = item.id }) |
+        @Html.ActionLink("Xóa", "Delete", new { id = item.id})
+    </td>
+</tr>
+    }
+    <tr>
+        <td>
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        </td>
+    </tr>
+</table>

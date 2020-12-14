@@ -1,0 +1,62 @@
+﻿@model IEnumerable<WebBanLinhKien.Areas.admin.Models.NhaCungCapModel>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Danh sách nhà cung cấp</h2>
+
+<p>
+    @Html.ActionLink("Tạo mới nhà cung cấp", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Mã nhà cung cấp
+        </th>
+        <th>
+            Tên nhà cung cấp
+        </th>
+        <th>
+            Địa chỉ
+        </th>
+        <th>
+            Số điện thoại
+        </th>
+        <th>
+            Email
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ma_ncc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ten_ncc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dia_chi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sdt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.ActionLink("Sửa", "Edit", new { id = item.id }) |
+                @Html.ActionLink("Xóa", "Delete", new { id = item.id })
+            </td>
+        </tr>
+    }
+    <tr>
+        <td>
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        </td>
+    </tr>
+</table>

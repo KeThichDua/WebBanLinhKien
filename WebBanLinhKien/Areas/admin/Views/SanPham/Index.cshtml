@@ -1,0 +1,81 @@
+﻿@model IEnumerable<WebBanLinhKien.Areas.admin.Models.SanPhamModel>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Danh sách sản phẩm</h2>
+
+<p>
+    @Html.ActionLink("Tạo mới", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Mã sản phẩm
+        </th>
+        <th>
+            Tên sản phẩm
+        </th>
+        <th>
+            Số lượng
+        </th>
+        <th>
+            Đơn giá
+        </th>
+        <th>
+            Mô tả
+        </th>
+        <th>
+            Giá khuyến mại
+        </th>
+        <th>
+            Url ảnh
+        </th>
+        <th>
+            Mã loại sản phẩm
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ma_sp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ten_sp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.So_luong)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DonGia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mo_ta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gia_km)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Url_anh)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ma_loai_sp)
+            </td>
+            <td>
+                @Html.ActionLink("Sửa", "Edit", new { id = item.id }) |
+                @Html.ActionLink("Xóa", "Delete", new { id = item.id })
+            </td>
+        </tr>
+    }
+    <tr>
+        <td>
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        </td>
+    </tr>
+
+</table>
