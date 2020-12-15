@@ -83,3 +83,7 @@ D:\cong-nghe-lap-trinh-tich-hop\btl\WebBanLinhKien\obj\Debug\WebBanLinhKien.cspr
 D:\cong-nghe-lap-trinh-tich-hop\btl\WebBanLinhKien\obj\Debug\WebBanLinhKien.csproj.CopyComplete
 D:\cong-nghe-lap-trinh-tich-hop\btl\WebBanLinhKien\obj\Debug\WebBanLinhKien.dll
 D:\cong-nghe-lap-trinh-tich-hop\btl\WebBanLinhKien\obj\Debug\WebBanLinhKien.pdb
+D:\cong-nghe-lap-trinh-tich-hop\btl\WebBanLinhKien\bin\PagedList.dll
+D:\cong-nghe-lap-trinh-tich-hop\btl\WebBanLinhKien\bin\PagedList.Mvc.dll
+D:\cong-nghe-lap-trinh-tich-hop\btl\WebBanLinhKien\bin\PagedList.xml
+D:\cong-nghe-lap-trinh-tich-hop\btl\WebBanLinhKien\bin\PagedList.Mvc.xml
